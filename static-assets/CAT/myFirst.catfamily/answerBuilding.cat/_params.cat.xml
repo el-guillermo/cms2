@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cat xmlns="urn:apple:names:siri:cat:1.0" id="Answers#answerBuilding">
+    <meta name="description" value=""/>
+    <meta name="category" value=""/>
+
+    <parameters>
+        <parameter name="buildingProperty" type="dialog.String" />
+        <parameter name="buildingDisplayName" type="dialog.String" />
+        <parameter name="buildingOpeningDate" type="dialog.String" />
+        <parameter name="buildingInceptionDate" type="dialog.String" />
+        <parameter name="buildingIsInceptionFuture" type="dialog.Boolean" />
+        <parameter name="buildingIsOpeningFuture" type="dialog.Boolean" />
+        <parameter name="buildingMonthInception" type="dialog.String" />
+        <parameter name="buildingYearInception" type="dialog.String" />
+        <parameter name="buildingMonthOpening" type="dialog.String" />
+        <parameter name="buildingYearOpening" type="dialog.String" />
+        <parameter name="buildingDemolished" type="dialog.Boolean" />
+        <parameter name="buildingHeight" type="dialog.String" />
+    </parameters>
+
+</cat>

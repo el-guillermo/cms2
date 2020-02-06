@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cat xmlns="urn:apple:names:siri:cat:1.0" locale="en">
+
+    <conditions>
+        <condition name="myBoolIsTrue">
+            <expression name="myBool" />
+        </condition>
+        <condition name="myNumberIs3">
+            <expression name="myNumber" op="eq" value="3" />
+            </condition>   
+    </conditions>
+
+    <first>
+        <dialog condition="myBoolIsTrue">myBool is True</dialog>
+        <dialog condition="myNumberIs3">myNumber is 3</dialog>
+        <dialog>myString is <var name="myString"/></dialog>
+        <dialog>My first name is <var name="person.firstName"/></dialog>
+        <dialog>My number is: <var name="myNumber"></dialog>
+        
+    </first>
+
+</cat>
