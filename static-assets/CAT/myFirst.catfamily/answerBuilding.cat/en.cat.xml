@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cat xmlns="urn:apple:names:siri:cat:1.0" locale="en">
+
+    <conditions>
+        <condition name="INCEPTION_AND_OPENING_DATE">
+            <or>
+                <expression name="buildingProperty" op="eq" value="'INCEPTION'" />
+                <expression name="buildingProperty" op="eq" value="'OPENING_DATE'" />
+            </or>
+        </condition>
+        
+        <condition name="HEIGHT">
+            <expression name="buildingProperty" op="eq" value="'HEIGHT'" />
+        </condition>
+                
+        <condition name="noOpeningDate">
+            <expression name="buildingOpeningDate" op="undefined" />
+        </condition>
+        
+        <condition name="noInceptionDate">
+            <expression name="buildingInceptionDate" op="undefined" />
+        </condition>
+        
+        <condition name="openingInFuture">
+            <expression name="buildingIsOpeningFuture" />
+        </condition>
+        
+        <condition name="inceptionInFuture">
+            <expression name="buildingIsInceptionFuture" />
+        </condition>
+        
+        <condition name="haveMonths">
+            <and>
+                <expression name="buildingMonthInception" op="defined" />
+                <expression name="buildingMonthOpening" op="defined" />
+            </and>
+        </condition>
+        
+        <condition name="startsWithThe">
+            <expression name="buildingDisplayName.startsWith" op="eq" value="'the'" />
+        </condition>
+        
+        <condition name="isDemolished">
+            <expression name="buildingDemolished" />
+        </condition>
+        
+    </conditions>
+
+    <phrases>
+        <first phrase="buildingName">
+            <text condition="startsWithThe"><var name="buildingDisplayName" /></text>
+            <text>The <var name="buildingDisplayName" /></text>
+        </first>
+    </phrases>
+
+    <first>
+        <first condition="INCEPTION_AND_OPENING_DATE">
+
+            <first condition="noOpeningDate">
+                <dialog condition="inceptionInFuture">Construction of <phrase name="buildingName" /> is expected to begin in <var name="buildingMonthInception" /> <var name="buildingYearInception" />.</dialog>
+                <dialog>Construction of <phrase name="buildingName" /> began in <var name="buildingMonthInception" /> <var name="buildingYearInception" />.</dialog>
+            </first>
+
+            <first condition="noInceptionDate">
+                <dialog condition="openingInFuture"><transform mode="capitalizeFirst"><phrase name="buildingName" /></transform> is expected to complete in <var name="buildingMonthOpening" /> <var name="buildingYearOpening" />.</dialog>
+                <dialog><transform mode="capitalizeFirst"><phrase name="buildingName" /></transform> was completed in <var name="buildingMonthOpening" /> <var name="buildingYearOpening" />.</dialog>
+            </first>
+                
+            <dialog condition="haveMonths"><transform mode="capitalizeFirst"><phrase name="buildingName" /></transform> was built between <var name="buildingMonthInception" /> <var name="buildingYearInception" /> and <var name="buildingMonthOpening" /> <var name="buildingYearOpening" />.</dialog>
+            <dialog><transform mode="capitalizeFirst"><phrase name="buildingName" /></transform> was built between <var name="buildingYearInception" /> and <var name="buildingYearOpening" />.</dialog>
+
+        </first>
+
+        <first condition="HEIGHT">
+
+            <dialog condition="isDemolished"><transform mode="capitalizeFirst"><phrase name="buildingName" /></transform> was <var name="buildingHeight" /> tall.</dialog>
+            <dialog><phrase name="buildingName" /> is <var name="buildingHeight" /> tall.</dialog>
+
+        </first>
+
+    </first>
+
+</cat>

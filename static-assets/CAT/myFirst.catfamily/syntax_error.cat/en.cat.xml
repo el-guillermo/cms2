@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cat xmlns="urn:apple:names:siri:cat:1.0" locale="en">
+
+    <conditions>
+    </conditions>
+
+    <first>
+        <dialog>myString is <var name="myString"/></dialog>   
+        <dialog>My first name is <var name="person.firstName"></dialog>
+    </first>
+
+</cat>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cat xmlns="urn:apple:names:siri:cat:1.0" id="myFirst#myFirst">
+    <meta name="description" value=""/>
+    <meta name="category" value=""/>
+
+    <parameters>
+        <parameter name="myString" type="dialog.String" />
+        <parameter name="person" type="dialog.Person" />
+    </parameters>
+
+</cat>
